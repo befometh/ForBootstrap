@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Librería Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="card col-12 p-3">
+          <form action="procesar.php" method="post">
+            <!-- Título del Formulario -->
+            <div class="card-header border fw-bold">Datos Socioeconómicos</div>
+            <!-- Cuerpo del formulario -->
+            <div class="card-body col-12 border">
+              <div class="row">
+                <!-- Contenedor 1: Formulario de la izquierda -->
+                <div class="col-md-10">
+                  <!-- Fila 1-1 -->
+                  <div class="row">
+                    <!-- Contenedor 1-1: Primer apellido -->
+                    <div class="col-md">
+                      <label for="ln1" class="form-label"
+                        >Primer Apellido</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="ln1"
+                          aria-describedby="basic-addon3"
+                        />
+                      </div>
+                    </div>
+                    <!-- Contenedor 1-2: Segundo Apellido -->
+                    <div class="col-md">
+                      <label for="ln2" class="form-label"
+                        >Segundo Apellido</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="ln2"
+                          aria-describedby="basic-addon3"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fila 1-2 -->
+                  <div class="row">
+                    <!-- Contenedor 1-3: Nombre -->
+                    <div class="input-group mb-3 col-md">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Nombre"
+                        aria-label="Nombre"
+                      />
+                    </div>
+                    <!-- Contenedor 1-4: Nick -->
+                    <div class="input-group mb-3 col-md">
+                      <span class="input-group-text" id="basic-addon1">@</span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Nick"
+                        aria-label="Nick"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+                    <!-- Contenedor 1-5: Contraseña -->
+                    <div class="input-group mb-3 col-md">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Contraseña"
+                        aria-label="Contraseña"
+                        aria-describedby="basic-addon2"
+                      />
+                    </div>
+                  </div>
+                  <!-- Fila 3 -->
+                  <div class="row">
+                    <!-- Contendor 1-6: NIF -->
+                    <div class="col-md">
+                      <label for="nif" class="form-label">NIF</label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="nif"
+                          aria-describedby="basic-addon3"
+                        />
+                      </div>
+                    </div>
+                    <!-- Contenedor 1-7: Nacionalidad -->
+                    <div class="col-md">
+                      <label for="nacional" class="form-label"
+                        >Nacionalidad</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="nacional"
+                          aria-describedby="basic-addon3"
+                        />
+                      </div>
+                    </div>
+                    <!-- Contenedor 1-8: Fecha de Nacimiento -->
+                    <div class="col-md">
+                      <label for="birth" class="form-label"
+                        >Fecha de Nacimiento</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="birth"
+                          aria-describedby="basic-addon3"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Fin del contenedor 1-->
+              </div>
+            </div>
+            <!-- Fin del cuerpo del formulario -->
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- Librería bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
