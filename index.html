@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="auth" content="Cristyan Morales Acevedo">
+    <title>ForMalaria</title>
 
     <!-- Librería Bootstrap -->
     <link
@@ -13,22 +14,26 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+
+    <!-- Validador de formularios para evitar comillas -->
+    <script rel="validator" src="js/script.js"></script>
   </head>
   <body>
     <main>
       <section>
         <div class="card col-12 p-3">
-          <form action="procesar.php" method="post">
+          </div>
+          <form action="procesar.php" method="post" onsubmit="return validateForm()">
             <!-- Título del Formulario -->
             <div class="card-header border fw-bold">Datos Socioeconómicos</div>
             <!-- Cuerpo del formulario -->
             <div class="card-body col-12 border">
               <div class="row">
                 <!-- Contenedor 1: Formulario de la izquierda -->
-                <div class="col-md-10">
+                <div class="col-md-9">
                   <!-- Fila 1-1 -->
                   <div class="row">
-                    <!-- Contenedor 1-1: Primer apellido -->
+                    <!-- Primer apellido -->
                     <div class="col-md">
                       <label for="ln1" class="form-label"
                         >Primer Apellido</label
@@ -39,10 +44,12 @@
                           class="form-control"
                           id="ln1"
                           aria-describedby="basic-addon3"
+                          pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$"
+                          required
                         />
                       </div>
                     </div>
-                    <!-- Contenedor 1-2: Segundo Apellido -->
+                    <!-- Segundo Apellido -->
                     <div class="col-md">
                       <label for="ln2" class="form-label"
                         >Segundo Apellido</label
@@ -53,22 +60,26 @@
                           class="form-control"
                           id="ln2"
                           aria-describedby="basic-addon3"
+                          pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$" 
+                          required
                         />
                       </div>
                     </div>
                   </div>
                   <!-- Fila 1-2 -->
                   <div class="row">
-                    <!-- Contenedor 1-3: Nombre -->
+                    <!-- Nombre -->
                     <div class="input-group mb-3 col-md">
                       <input
                         type="text"
                         class="form-control"
                         placeholder="Nombre"
                         aria-label="Nombre"
+                        pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]{2,}"
+                        required
                       />
                     </div>
-                    <!-- Contenedor 1-4: Nick -->
+                    <!-- Nick -->
                     <div class="input-group mb-3 col-md">
                       <span class="input-group-text" id="basic-addon1">@</span>
                       <input
@@ -77,22 +88,25 @@
                         placeholder="Nick"
                         aria-label="Nick"
                         aria-describedby="basic-addon1"
+                        required
                       />
                     </div>
                     <!-- Contenedor 1-5: Contraseña -->
                     <div class="input-group mb-3 col-md">
                       <input
-                        type="text"
+                        type="password"
                         class="form-control"
                         placeholder="Contraseña"
                         aria-label="Contraseña"
                         aria-describedby="basic-addon2"
+                        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}$" 
+                        required
                       />
                     </div>
                   </div>
-                  <!-- Fila 3 -->
+                  <!-- Fila 1-3 -->
                   <div class="row">
-                    <!-- Contendor 1-6: NIF -->
+                    <!-- NIF -->
                     <div class="col-md">
                       <label for="nif" class="form-label">NIF</label>
                       <div class="input-group mb-3">
@@ -101,10 +115,12 @@
                           class="form-control"
                           id="nif"
                           aria-describedby="basic-addon3"
+                          pattern="^[a-zA-Z0-9]{7,10}"   
+                          required              
                         />
                       </div>
                     </div>
-                    <!-- Contenedor 1-7: Nacionalidad -->
+                    <!-- Nacionalidad -->
                     <div class="col-md">
                       <label for="nacional" class="form-label"
                         >Nacionalidad</label
@@ -115,10 +131,11 @@
                           class="form-control"
                           id="nacional"
                           aria-describedby="basic-addon3"
+                          pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$"
                         />
                       </div>
                     </div>
-                    <!-- Contenedor 1-8: Fecha de Nacimiento -->
+                    <!--Fecha de Nacimiento -->
                     <div class="col-md">
                       <label for="birth" class="form-label"
                         >Fecha de Nacimiento</label
@@ -129,12 +146,287 @@
                           class="form-control"
                           id="birth"
                           aria-describedby="basic-addon3"
+                          min="1920-01-01"
                         />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fila 1-4 -->
+                  <div class="row">
+                    <!-- Dirección -->
+                    <div class="col-md">
+                      <label for="addr" class="form-label"
+                        >Dirección</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="addr"
+                          aria-describedby="basic-addon3"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fila 1-5 -->
+                  <div class="row">
+                    <!-- Teléfono Fijo -->
+                    <div class="col-md">
+                      <label for="pHome" class="form-label"
+                        >Teléfono Fijo</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="pHome"
+                          aria-describedby="basic-addon3"
+                          pattern="[0-9]{9}"
+                        />
+                      </div>
+                    </div>
+                    <!-- Teléfono Móvil -->
+                    <div class="col-md">
+                      <label for="pMobile" class="form-label"
+                        >Teléfono Móvil</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="pMobile"
+                          aria-describedby="basic-addon3"
+                          pattern="[0-9]{9}"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <!-- Teléfono Trabajo -->
+                    <div class="col-md">
+                      <label for="pWork" class="form-label"
+                        >Teléfono Trabajo</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="pWork"
+                          aria-describedby="basic-addon3"
+                          pattern="[0-9]{9}"
+                        />
+                      </div>
+                    </div>                    
+                  </div>
+                  <!-- Fila 1-6 -->
+                  <div class="row ">
+                    <!-- Código Postal -->
+                    <div class="col-md">
+                      <label for="cp" class="form-label"
+                        >Código Postal</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cp"
+                          aria-describedby="basic-addon3"
+                          pattern="^(?:0[1-9]\d{3}|[1-4]\d{4}|5[0-2]\d{3})$"
+                        />
+                      </div>
+                    </div>
+                    <!-- Provincia -->
+                    <div class="col-md">
+                      <label for="province" class="form-label"
+                        >Provincia</label
+                      >
+                      <select class="form-select" id="province">
+                        <option selected>Seleccione</option>
+                        <option value="	1	">	A Coruña	</option>
+                        <option value="	2	">	Álava	</option>
+                        <option value="	3	">	Albacete	</option>
+                        <option value="	4	">	Alicante	</option>
+                        <option value="	5	">	Almería	</option>
+                        <option value="	6	">	Asturias	</option>
+                        <option value="	7	">	Ávila	</option>
+                        <option value="	8	">	Badajoz	</option>
+                        <option value="	9	">	Baleares	</option>
+                        <option value="	10	">	Barcelona	</option>
+                        <option value="	11	">	Burgos	</option>
+                        <option value="	12	">	Cáceres	</option>
+                        <option value="	13	">	Cádiz	</option>
+                        <option value="	14	">	Cantabria	</option>
+                        <option value="	15	">	Castellón	</option>
+                        <option value="	16	">	Ciudad Real	</option>
+                        <option value="	17	">	Córdoba	</option>
+                        <option value="	18	">	Cuenca	</option>
+                        <option value="	19	">	Girona	</option>
+                        <option value="	20	">	Granada	</option>
+                        <option value="	21	">	Guadalajara	</option>
+                        <option value="	22	">	Gipuzkoa	</option>
+                        <option value="	23	">	Huelva	</option>
+                        <option value="	24	">	Huesca	</option>
+                        <option value="	25	">	Jaén	</option>
+                        <option value="	26	">	La Rioja	</option>
+                        <option value="	27	">	Las Palmas	</option>
+                        <option value="	28	">	León	</option>
+                        <option value="	29	">	Lérida	</option>
+                        <option value="	30	">	Lugo	</option>
+                        <option value="	31	">	Madrid	</option>
+                        <option value="	32	">	Málaga	</option>
+                        <option value="	33	">	Murcia	</option>
+                        <option value="	34	">	Navarra	</option>
+                        <option value="	35	">	Ourense	</option>
+                        <option value="	36	">	Palencia	</option>
+                        <option value="	37	">	Pontevedra	</option>
+                        <option value="	38	">	Salamanca	</option>
+                        <option value="	39	">	Segovia	</option>
+                        <option value="	40	">	Sevilla	</option>
+                        <option value="	41	">	Soria	</option>
+                        <option value="	42	">	Tarragona	</option>
+                        <option value="	43	">	Santa Cruz de Tenerife	</option>
+                        <option value="	44	">	Teruel	</option>
+                        <option value="	45	">	Toledo	</option>
+                        <option value="	46	">	Valencia	</option>
+                        <option value="	47	">	Valladolid	</option>
+                        <option value="	48	">	Vizcaya	</option>
+                        <option value="	49	">	Zamora	</option>
+                        <option value="	50	">	Zaragoza	</option>
+                      </select>
+                    </div>
+                    <!-- Localidad -->
+                    <div class="col-md">
+                      <label for="local" class="form-label"
+                        >Localidad</label
+                      >
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="local"
+                          aria-describedby="basic-addon3"
+                          pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fila 1-7 -->
+                  <div class="row">
+                    <!-- Método de pago -->
+                    <div class="col-md">
+                      <label for="totalPayment" class="form-label pe-3">Método de pago</label>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="payment" id="payment1" value="1">
+                        <label class="form-check-label" for="payment1">
+                          Visa
+                        </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="payment" id="payment2" value="2">
+                        <label class="form-check-label" for="payment2">
+                          MasterCard
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Tarjeta -->
+                    <div class="col-md-8">
+                      <div class="row">
+                        <!-- Número de Tarjeta -->
+                        <div class="form-group mb-3 col-md">
+                          <label for="numCard" class="form-label">Número de Tarjeta</label>
+                          <div class="input-group">
+                            <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Tarjeta"
+                            name="numCard"
+                            id="numCard"
+                            pattern="[0-9]{12,15}"
+                            required
+                            />
+                          </div>
+                        </div>
+                        <!-- Fecha de Vencimiento -->
+                        <div class="form-group mb-3 col-md">
+                          <label for="expiry" class="form-label d-block">Fecha de Expiración</label>
+                          <div class="input-group">
+                            <input type="month" class="form-control" name="expiry" id="expiry" required>
+                          </div>
+                        </div>
+                        <!-- CV -->
+                        <div class="form-group mb-3 col-md">
+                          <label for="CVCard" class="form-label">CV</label>
+                          <div class="input-group">
+                            <input
+                            type="text"
+                            class="form-control"
+                            aria-label="CV"
+                            id="CVCard"
+                            name="CVCard"
+                            pattern="[0-9]{3,5}"
+                            required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>                    
+                  </div>
+                  <!-- Fila 8 -->
+                  <div class="row">
+                    <!-- Información Adicional -->
+                    <div class="formg-group col-md mb-3">                      
+                      <label for="addInfo" class="form-label">Información Adicional</label>                    
+                      <div class="input-group">
+                        <textarea name="addInfo" id="addInfo" class="form-control" cols="30" rows="5" maxlength="500"></textarea>
                       </div>
                     </div>
                   </div>
                 </div>
                 <!-- Fin del contenedor 1-->
+
+                <!-- Contenedor 2: Productos -->
+                <div class="col-md-3">
+                  <!-- Título del producto -->
+                  <div class="card-header border fw-bold">Productos</div>
+                  <!-- Cuerpo del producto -->
+                  <div class="card-body border">
+                    <!-- Total bruto -->
+                    <div class="row">
+                      <div class="col-md border-bottom">
+                        <div class="float-start">
+                          <h2 class="h6">Total Productos</h2>
+                        </div>
+                        <div class="float-end">
+                          <h2 class="h6"><span>€</span>53,98</h2>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Envío -->
+                    <div class="row">
+                      <div class="col-md">
+                        <div class="float-start">Envío</div>                        
+                        <div class="float-end">Gratis</div>
+                      </div>
+                    </div>
+                    <!-- Total + IGIC -->
+                    <div class="row">
+                      <div class="col-md mt-5">
+                        <div class="float-start">
+                          <h2 class="h6">Total <br> (IGIC Incluido)</h2>
+                        </div>
+                        <div class="float-end">
+                          <h2 class="h6"><span>€</span>57,72</h2>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Botón -->
+                    <div class="row">
+                      <div class="col-md">
+                        <button type="submit" class="btn btn-success w-100">Comprar</button>                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Fin del contenedor 2 -->
               </div>
             </div>
             <!-- Fin del cuerpo del formulario -->
